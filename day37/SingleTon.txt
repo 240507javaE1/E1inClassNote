@@ -1,0 +1,47 @@
+package com;
+class SingleTonTest
+{
+	/*
+	 * field->static
+	 * 先new 自己static 
+	 * contrustor-->private-->不允許-->new
+	 * 方法呼叫
+	 */
+	
+	private static String name;
+	private static SingleTonTest st=new SingleTonTest();
+	private SingleTonTest() 
+	{
+		
+	}
+	public static String getName() {
+		return name;
+	}
+	public static void setName(String name) {
+		SingleTonTest.name = name;
+	}
+	public static SingleTonTest getSt() {
+		return st;
+	}
+	
+	
+	
+	
+	
+}
+
+public class ex2 {
+
+	public static void main(String[] args) {
+		
+		SingleTonTest st1=SingleTonTest.getSt();
+		SingleTonTest st2=SingleTonTest.getSt();
+		
+		st1.setName("teacher");
+		System.out.println(st2.getName());
+		System.out.println(st1);
+		System.out.println(st2);
+
+	}
+
+}

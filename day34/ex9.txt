@@ -1,0 +1,61 @@
+Ex17
+Given the content from the Tree.java and Plant.java files:
+package root;
+public class Tree{
+	public void m1(){}
+	private void m2(){}
+	protected void m3(){}
+	void m4(){}
+}
+
+package branch;
+import root.*;
+public class Plant extends Tree{}
+
+and the code fragment:
+9. Plant t = new Plant();
+10. // insert code fragment here //
+
+Which code fragment is valid at line 10?
+
+A)
+t.m1();
+
+B)
+t.m1();
+t.m3();
+
+C)
+t.m1();
+t.m4();
+
+D)
+t.m1();
+t.m3();
+t.m4();
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ex18
+Given the code fragment:
+
+LocalDateTime dt = LocalDateTime.of(2014, 7, 31, 1, 1);
+dt.plusDays(30);
+dt.plusMonths(1);
+System.out.println(dt.format(DateTimeFormatter.ISO_DATE_TIME));
+
+What is the result?
+A) 2014-09-30T00:00:00
+B) 2014-07-31T01:01:00
+C) 2014-07-31
+D) An exception is thrown at runtime.

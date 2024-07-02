@@ -1,0 +1,48 @@
+package com;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+/*class Person implements Comparable<Person>
+{
+	String name;
+	Person(String name) {
+		this.name=name;	
+	}
+	// line n2
+	@Override
+	public int compareTo(Person o) {
+		// TODO Auto-generated method stub
+		return this.name.compareTo(o.name); 
+	}
+}*/
+
+class Person implements Comparator<Person>// line n1
+{
+	String name;
+	Person(String name) {
+		this.name=name;	
+	}
+	// line n2
+	@Override
+	public int compare(Person o1, Person o2) {
+		// TODO Auto-generated method stub
+		return o1.name.compareTo(o2.name);  
+	}
+}
+
+public class ex1 {
+
+	public static void main(String[] args) {
+		List<Person> emps=new ArrayList<>();
+		
+		Collections.sort(emps);
+		
+		
+		
+		
+	}
+
+}

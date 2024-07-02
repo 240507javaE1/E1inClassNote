@@ -1,0 +1,65 @@
+Ex11
+Given the code fragment:
+
+List<String> words=Arrays.asList("win","try","best","luck","do");
+Predicate<String> test1=w->{
+	System.out.println("Checking...");
+	return w.equals("do");				//line n1
+
+};
+
+Predicate test2=(String w)->w.length()>3; //line n2
+
+words.stream()
+	 .filter(test2)
+	 .filter(test1)
+	 .count();
+	 
+What is the result?
+
+A) Checking...
+   Checking...
+   
+B) Checking...
+
+C) A compilation error occurs at line n1
+
+D) A compilation error occurs at line n2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ex12
+Given the code fragment:
+
+Stream<List<String>> strs=Stream.of(
+		Arrays.asList("text1","text2"),
+		Arrays.asList("text2", "text3"));
+		
+Stream<String> bs2=strs
+		.filter(b->b.contains("text1"))
+		.flatMap(rs->rs.stream());
+		
+bs2.forEach(b->System.out.print(b));
+
+What is the result?
+
+A) text1
+
+B) text1text2
+
+C) text1text2text2text3
+
+D) [text1,text2]

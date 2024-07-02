@@ -1,0 +1,84 @@
+ex27
+Given:
+class CheckClass {
+ 
+    public static int checkValue(String s1, String s2) {
+        return s1.length() - s2.length();
+    }
+}
+and the code fragment:
+
+String[] strArray = new String[]{"Tiger", "Rat", "Cat", "Lion"};
+//line n1
+for (String s : strArray) {
+    System.out.print(s + " ");
+}
+Which code fragment should be inserted at line n1 to enable the code to print Rat Cat Lion Tiger ?
+
+A.
+Arrays.sort(strArray, CheckClass::checkValue);
+
+B.
+Arrays.sort(strArray, (CheckClass::new)::checkValue);
+
+C.
+Arrays.sort(strArray, (CheckClass::new).checkValue);
+
+D.
+Arrays.sort(strArray, CheckClass::new::checkValue);
+
+
+
+
+
+
+
+ex28
+Given the code fragments:
+
+public class Book implements Comparator<Book> {
+ 
+    String name;
+    double price;
+ 
+    public Book() {
+    }
+ 
+    public Book(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+ 
+    public int compare(Book b1, Book b2) {
+        return b1.name.compareTo(b2.name);
+    }
+ 
+    public String toString() {
+        return name + ":" + price;
+    }
+}
+and
+
+List<Book> books = Arrays.asList(new Book("Beginning with Java", 2), new Book("A Guide to Java Tour", 3));
+Collections.sort(books, new Book());
+System.out.print(books);
+
+/*
+//Collections.sort(books,(o1,o2)->o1.name.compareTo(o2.name));
+		
+		Collections.sort(books, new Book());
+
+
+*/
+
+What is the result?
+
+A.
+[A Guide to Java Tour:3.0, Beginning with Java:2.0]
+
+B.
+[Beginning with Java:2.0, A Guide to Java Tour:3.0]
+
+C. A compilation error occurs because the Book class does not override the abstract method compareTo().
+
+D. An Exception is thrown at run time.

@@ -1,0 +1,23 @@
+package com;
+interface Moveable<Integer> {
+	 
+    public default void walk(Integer distance) {
+        System.out.println("deault Walking");
+    }
+    
+    public static void walk2(int distance)
+    {
+    	System.out.println("static Walking");
+    }
+ 
+    public void  run(Integer distance);
+}
+public class ex1 {
+	
+	public static void main(String[] args) {
+		
+		Moveable.walk2(100);
+	}
+		
+		
+}

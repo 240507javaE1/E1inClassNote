@@ -1,0 +1,50 @@
+package com;
+
+import java.util.function.Supplier;
+
+class Bird {
+	 
+    public void fly() {
+        System.out.println("Can fly");
+    }
+}
+ 
+class Penguin extends Bird {
+ 
+    public void fly() {
+        System.out.println("Cannot fly");
+    }
+}
+public class ex1 {
+	
+	
+	public static void main(String[] args) {
+		
+			fly(() -> new Bird());//Bird::new
+			fly(Bird::new);
+			
+			
+	        fly(Penguin::new);//()->new Penguin()
+	       fly(()->new Penguin());
+		
+		
+		
+		
+		/*ex1.show();
+		show();*/
+	}
+	static void fly (Supplier<Bird> abc) {
+	   abc.get().fly();
+	}
+	
+	
+	
+	public static void show()
+	{
+		System.out.println("hello test");
+	}
+	
+	
+		
+		
+}

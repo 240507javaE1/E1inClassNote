@@ -1,0 +1,77 @@
+Ex13
+class Person{
+	private String firstName;
+	private int salary;
+	public Person(String fN,int sal)
+	{
+		this.firstName=fN;
+		this.salary=sal;
+	
+	}
+	
+	public int getSalary() {return salary;}
+	public String getFirstName() { return firstName;}
+	
+}
+
+and the code fragment:
+
+List<Person> prog=Arrays.asList(
+		new Person("Smith",1500),
+		new Person("John",2000),
+		new Person("Joe",1000));
+double dVal=prog.stream()
+			.filter(s->s.getFirstName().startsWith("J"))
+			.mapToInt(Person::getSalary)
+			.average()
+			.getAsDouble();
+System.out.println(dVal);
+
+
+What is the result?
+
+A) A compilation error occurs.
+
+B) 2000.0
+
+C) 1500.0
+
+D) 0.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ex14
+Given the code fragment:
+
+public static void main(String[] args)
+{
+	Stream.of("Java","Unix","Linux")
+	.filter(s->s.contains("n"))
+	.peek(s->System.out.println("PEEK:"+s))
+	//line n1
+
+}
+
+Which two code fragments, when inserted at line n1 independently, result in the output PEEK: Unix?
+
+A) .anyMatch();
+B) .noneMatch();
+C) .allMatch();
+D) .findFirst();
+E) .findAny();

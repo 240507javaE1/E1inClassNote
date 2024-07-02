@@ -1,0 +1,74 @@
+Ex1.
+Given the code fragment:
+
+List<Integer> list1=Arrays.asList(10,20);
+List<Integer> list2=Arrays.asList(15,30);
+// line n1
+
+Which code fragment, when inserted at line n1, prints 10 20 15 30?
+
+A) list1.stream()
+        .flatMap(list2.stream().flatMap(e1->e1.stream())
+        .forEach(s->System.out.println(s+" "));
+        
+B) Stream.of(list1,list2)
+        .flatMap(list->list.intStream())
+        .forEach(s->System.out.print(s+" "));
+        
+C) Stream.of(list1,list2)
+        .flatMapToInt(list->list.intStream())
+        .forEach(s->System.out.print(s+" "));
+        
+D) Stream.of(list1,list2)
+        .flatMap(list->list.stream())
+        .forEach(s->System.out.print(s+" "));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ex2
+Given:
+
+class Person {
+	String name;
+	int age;
+	public Person(String name,int age){
+		this.name=name;
+		this.age=age;	
+	}
+	
+	public String getName(){ return name;}
+	public int getAge() { return age;}
+
+}
+
+and the code fragment:
+
+List<Person> sts=Arrays.asList(
+	new Person("Jack",30),
+	new Person("Mike Hill",21),
+	new Person("Thomas Hill",24));
+Stream<Person> resList=sts.stream().filter(s->s.getAge()>=25);  // Line n1
+long count=resList.filter(s->s.getName().contains("Hill")).count();
+System.out.print(count);
+
+What is the result?
+
+A) 0
+
+B) An Exception is thrown at run time.
+
+C) A compilation error occurs at line n1
+
+D) 2
+

@@ -1,0 +1,43 @@
+Ex5
+Given the code fragment:
+
+List<String> li=Arrays.asList("Java","J2EE","J2ME","JSTL","JSP","Oracle DB");
+Predicate<String> val=p->p.contains("J");
+List<String> neLi=li.stream().filter(x->x.length()>3)
+	.filter(val).collect(Collectors.toList());
+System.out.println(neLi);
+
+
+What is the result?
+
+A) null
+
+B) [Java,J2EE,J2ME,JSTL]
+
+C) [Java, J2EE,J2ME,JSTL,JSP]
+
+D) A compilation error occurs.
+
+
+
+
+
+
+Ex6
+Given the code fragment:
+
+List<String> qwords=Arrays.asList("why", "what", "when ");
+BinaryOperator<String> operator=(s1,s2)->s1.concat(s2);// line n1
+String sen=qwords.stream()
+	.reduce("Word: ",operator);
+System.out.println(sen);
+
+What is the result?
+
+A) Word: why what when
+
+B) Compilation fails at line n1.
+
+C) Word: why Word: what Word: when
+
+D) word: why word:why why what word: why what when

@@ -1,0 +1,107 @@
+ex25
+Given the code fragment:
+public class Employee {
+	String name;
+	boolean contract;
+	double salary;
+	Employee() {
+		// line n1
+	}
+	public String toString() {
+		return name + ":" + contract + ":" + salary;
+	}
+
+	public static void main(String[] args) {
+		Employee e = new Employee();
+		// line n2
+		System.out.print(e);
+	}
+}
+
+Which two modifications, when made independently, enable the code to print Joe:true:100.0?
+
+A)
+Replace line n1 with:
+this.name = new String("Joe");
+this.contract = new Boolean(true);
+this.salary = new Double(100);
+
+B)
+Replace line n1 with:
+this("Joe", true, 100);
+
+C)
+Replace line n1 with:
+name = "Joe";
+contract = TRUE;
+salary = 100.0f;
+
+D)
+Replace line n2 with:
+this.name = "Joe";
+this.contract = true;
+this.salary = 100;
+
+E)
+Replace line n2 with:
+e.name = "Joe";
+e.contract = true;
+e.salary = 100;
+
+
+
+
+
+
+
+ex26
+Given:
+
+public class App{
+	public static void main(String[] args) throws Exception {
+		try {
+			System.out.println("blue");
+			m();
+			throw new Exception();
+
+		} catch (RuntimeException re) {
+			System.out.println("yellow");
+
+		} catch (Exception e) {
+			System.out.println("green");
+
+		} finally {
+			System.out.println("orange");
+
+		}
+	}
+
+	public static void m() {
+		System.out.println("purple");
+		throw new RuntimeException();
+	}
+}
+
+What is the result?
+A)
+blue
+purple
+yellow
+orange
+
+B)
+blue
+green
+orange
+
+C)
+blue
+purple
+yellow
+green
+orange
+
+D)
+blue
+purple
+orange

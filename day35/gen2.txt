@@ -1,0 +1,43 @@
+package com;
+class Test<T>
+{
+	String show1(String msg)
+	{
+		return msg;
+	}
+	static String show2(String msg)
+	{
+		return msg;
+	}
+	
+	T show3(T x)
+	{
+		return x;
+	}
+	
+	static<T> T show4(T msg)
+	{
+		return msg;
+	}
+}
+
+public class ex1 {
+
+	public static void main(String[] args) {
+		new Test<>().show1("aaa");
+		Test.show2("ttt");
+		
+		Test<String> t=new Test<>();
+		t.show3("100");
+		
+		Test.show4("100");
+		Test.<String>show4("100");
+		
+		
+		
+		
+		
+		
+	}
+
+}

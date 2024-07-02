@@ -1,0 +1,101 @@
+EX31
+Given:
+
+class Student {
+ 
+    String course, name, city;
+ 
+    public Student(String name, String course, String city) {
+        this.course = course;
+        this.name = name;
+        this.city = city;
+    }
+ 
+    public String toString() {
+        return course + ":" + name + ":" + city;
+    }
+ 
+    public String getCourse() {
+        return course;
+    }
+}
+
+and the code fragment:
+
+List<Student> stds = Arrays.asList(
+        new Student("Jessy", "Java ME", "Chicago"),
+        new Student("Helen", "Java EE", "Houston"),
+        new Student("Mark", "Java ME", "Chicago"));
+stds.stream()
+        .collect(Collectors.groupingBy(Student::getCourse))
+        .forEach((src, res) -> System.out.println(src));
+What is the result?
+
+A.
+[Java EE: Helen:Houston]
+[Java ME: Jessy:Chicago, Java ME: Mark:Chicago]
+
+B.
+Java EE
+Java ME
+
+C.
+[Java ME: Jessy:Chicago, Java ME: Mark:Chicago]
+[Java EE: Helen:Houston]
+
+D. A compilation error occurs.
+
+
+
+
+
+
+
+
+EX32
+Given:
+
+class Bird {
+ 
+    public void fly() {
+        System.out.print("Can fly");
+    }
+}
+ 
+class Penguin extends Bird {
+ 
+    public void fly() {
+        System.out.print("Cannot fly");
+    }
+}
+and the code fragment:
+
+class Birdie {
+ 
+    public static void main(String[] args) {
+        fly(() -> new Bird());
+        fly(Penguin::new);
+    }
+    /* line n1 */
+}
+Which code fragment, when inserted at line n1, enables the Birdie class to compile?
+
+A.
+static void fly (Consumer<Bird> bird) {
+    bird::fly();
+}
+
+B.
+static void fly (Consumer<? extends Bird> bird) {
+    bird.accept().fly();
+}
+
+C.
+static void fly (Supplier<Bird> bird) {
+    bird.get().fly();
+}
+
+D.
+static void fly (Supplier<? extends Bird> bird) {
+    bird::fly();
+}

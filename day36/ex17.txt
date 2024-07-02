@@ -1,0 +1,90 @@
+ex33
+Given:
+
+public class Test<T> {
+ 
+    private T t;
+ 
+    public T get() {
+        return t;
+    }
+ 
+    public void set(T t) {
+        this.t = t;
+    }
+ 
+    public static void main(String args[]) {
+        Test<String> type = new Test<>();
+        Test type1 = new Test(); //line n1
+        type.set("Java");
+        type1.set(100); //line n2
+        System.out.print(type.get() + " " + type1.get());
+    }
+}
+What is the result?
+
+A.
+Java 100
+
+B.
+java.lang.string@java.lang.Integer@
+
+C. 
+A compilation error occurs. To rectify it, replace line n1 with:
+Test<Integer> type1 = new Test<>();
+
+D. 
+A compilation error occurs. To rectify it, replace line n2 with:
+type1.set(Integer(100));
+
+
+
+
+
+
+
+ex34
+Given the definition of the Country class:
+
+public class Country {
+ 
+    public enum Continent {
+        ASIA, EUROPE
+    }
+    String name;
+    Continent region;
+ 
+    public Country(String na, Continent reg) {
+        name = na;
+        region = reg;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public Continent getRegion() {
+        return region;
+    }
+}
+and the code fragment:
+
+List<Country> couList = Arrays.asList(
+        new Country("Japan", Country.Continent.ASIA),
+        new Country("Italy", Country.Continent.EUROPE), new Country("Germany", Country.Continent.EUROPE));
+
+Map<Country.Continent, List<String>> regionNames = couList.stream().
+        collect(Collectors.groupingBy(Country::getRegion,
+                Collectors.mapping(Country::getName, Collectors.toList())));
+
+System.out.println(regionNames);
+
+What is the output?
+
+A.{EUROPE = [Italy, Germany], ASIA = [Japan]}
+
+B.{ASIA = [Japan], EUROPE = [Italy, Germany]}
+
+C.{EUROPE = [Germany, Italy], ASIA = [Japan]}
+
+D.{EUROPE = [Germany], EUROPE = [Italy], ASIA = [Japan]}

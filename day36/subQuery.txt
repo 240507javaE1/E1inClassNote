@@ -1,0 +1,12 @@
+SELECT * FROM gjcompany.porder;
+
+#查詢訂單上不存在的產品號
+select * from gjcompany.porder 
+where gjcompany.porder.productno not in (select gjcompany.product.productno from gjcompany.product);
+
+#查詢沒有下訂單的會員
+
+#查詢沒有銷售訂單的產品
+
+
+#查詢沒有業績的員工
